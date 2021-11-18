@@ -29,10 +29,6 @@ app.get('/', function (_, res) {
   res.render('home')
 })
 
-app.get('/', function (_, res) {
-  res.render('home')
-})
-
 app.get('/success', function (req, res) {
   res.render('success', req.query)
 })
@@ -43,10 +39,6 @@ app.get('/failure', function (req, res) {
 
 app.get('/pending', function (req, res) {
   res.render('pending', req.query)
-})
-
-app.get('/', function (_, res) {
-  res.render('home')
 })
 
 app.get('/detail', function (req, res) {
