@@ -2,6 +2,7 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const mercadopago = require('mercadopago')
 const dotenv = require('dotenv')
+const path = require('path')
 
 if (process.env.NODE_ENV !== 'development') {
   dotenv.config()
@@ -20,7 +21,16 @@ const app = express()
 
 app.use(express.json())
 
-app.engine('handlebars', exphbs())
+app.engine(
+  'handlebars',
+  exphbs({
+    extname: 'handlebars',
+    defaultLayout: 'main',
+    layoutsDir: path.join(__dirname, 'views', 'layouts'),
+    partialsDir: path.join(__dirname, 'views', 'partials'),
+  })
+)
+
 app.set('view engine', 'handlebars')
 
 app.use(express.static('assets'))
