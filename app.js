@@ -1,6 +1,11 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const mercadopago = require('mercadopago')
+const dotenv = require('dotenv')
+
+if (process.env.NODE_ENV !== 'development') {
+  dotenv.config()
+}
 
 const BASE_URL = process.env.BASE_URL
 
