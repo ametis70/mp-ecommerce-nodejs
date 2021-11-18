@@ -79,7 +79,7 @@ app.get('/detail', function (req, res) {
       email: process.env.PAYER_EMAIL,
       phone: {
         area_code: '11',
-        number: '22223333',
+        number: 22223333,
       },
       address: {
         street_name: 'Falsa',
