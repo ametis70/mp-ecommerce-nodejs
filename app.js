@@ -74,7 +74,7 @@ app.get('/detail', function (req, res) {
         unit_price: parseFloat(price),
         quantity: parseFloat(unit),
         picture_url: `${BASE_URL}${img.slice(1, img.length)}`,
-        description: 'Dispositivo móvil de Tienda e-commerce',
+        description: '“Dispositivo móvil de Tienda e-commerce”',
       },
     ],
     auto_return: 'approved',
@@ -84,16 +84,21 @@ app.get('/detail', function (req, res) {
       pending: `${BASE_URL}/pending`,
     },
     payer: {
-      name: 'Lalo Landa',
+      name: 'Lalo',
+      surname: 'Landa',
       email: process.env.PAYER_EMAIL,
       phone: {
         area_code: '11',
         number: 22223333,
       },
+      identification: {
+        type: 'DNI',
+        number: '12345678',
+      },
       address: {
         street_name: 'Falsa',
         street_number: 123,
-        zip_code: '111',
+        zip_code: '1111',
       },
     },
     payment_methods: {
