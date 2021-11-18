@@ -29,6 +29,26 @@ app.get('/', function (_, res) {
   res.render('home')
 })
 
+app.get('/', function (_, res) {
+  res.render('home')
+})
+
+app.get('/success', function (req, res) {
+  res.render('success', req.body)
+})
+
+app.get('/failure', function (req, res) {
+  res.render('failure', req.body)
+})
+
+app.get('/pending', function (req, res) {
+  res.render('pending', req.body)
+})
+
+app.get('/', function (_, res) {
+  res.render('home')
+})
+
 app.get('/detail', function (req, res) {
   const { title, price, unit, img } = req.query
 
@@ -48,6 +68,12 @@ app.get('/detail', function (req, res) {
         description: 'Dispositivo móvil de Tienda e-commerce',
       },
     ],
+    auto_return: 'approved',
+    back_urls: {
+      success: `${BASE_URL}/success`,
+      failure: `${BASE_URL}/failure`,
+      pending: `${BASE_URL}/pending`,
+    },
     paymentMethods: {
       excluded_payment_methods: [
         {
