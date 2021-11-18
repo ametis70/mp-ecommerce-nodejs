@@ -74,6 +74,19 @@ app.get('/detail', function (req, res) {
       failure: `${BASE_URL}/failure`,
       pending: `${BASE_URL}/pending`,
     },
+    payer: {
+      name: 'Lalo Landa',
+      email: process.env.PAYER_EMAIL,
+      phone: {
+        area_code: '11',
+        number: '22223333',
+      },
+      address: {
+        street_name: 'Falsa',
+        street_number: 123,
+        zip_code: '111',
+      },
+    },
     paymentMethods: {
       excluded_payment_methods: [
         {
@@ -93,10 +106,9 @@ app.get('/detail', function (req, res) {
   mercadopago.preferences
     .create(preference)
     .then(function (response) {
-      console.log(response.body)
-      const { id } = response.body
+      const { init_point } = response.body
 
-      res.render('detail', { ...req.query, id })
+      res.render('detail', { ...req.query, init_point })
     })
     .catch(function (error) {
       console.log(error)

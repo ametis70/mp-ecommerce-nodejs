@@ -85,30 +85,11 @@
                                     {{ unit }}
                                 </h3>
                             </div>
-                            <button type="submit" id="mercadopago-button" formmethod="post"></button>
-                        </div>
+                            <a style="display:block" class="mercadopago-button" href="{{init_point}}">Pagar la compra</a>
+                        </divr
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-// Agrega credenciales de SDK
-  const mp = new MercadoPago('PUBLIC_KEY', {
-        locale: 'es-AR'
-  });
-
-  // Inicializa el checkout
-  mp.checkout({
-      preference: {
-        id: '{{ id }}'
-      },
-      render: {
-        container: '#mercadopago-button', 
-        label: 'Pagar la compra', 
-      }
-});
-</script>
-   
