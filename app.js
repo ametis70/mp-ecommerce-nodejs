@@ -18,6 +18,8 @@ const port = process.env.PORT || 3000
 
 const app = express()
 
+app.use(express.json())
+
 app.engine('handlebars', exphbs())
 app.set('view engine', 'handlebars')
 
@@ -39,6 +41,11 @@ app.get('/failure', function (req, res) {
 
 app.get('/pending', function (req, res) {
   res.render('pending', req.query)
+})
+
+app.post('/notify', function (req, res) {
+  console.log(req.body)
+  res.status(200).send('OK')
 })
 
 app.get('/detail', function (req, res) {
@@ -92,6 +99,7 @@ app.get('/detail', function (req, res) {
       ],
       installments: 6,
     },
+    notification_url: `${BASE_URL}/notify`,
     external_reference: process.env.EMAIL,
   }
 
