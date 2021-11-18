@@ -48,6 +48,19 @@ app.get('/detail', function (req, res) {
         description: 'Dispositivo móvil de Tienda e-commerce',
       },
     ],
+    paymentMethods: {
+      excluded_payment_methods: [
+        {
+          id: 'amex',
+        },
+      ],
+      excluded_payment_types: [
+        {
+          id: 'atm',
+        },
+      ],
+      installments: 6,
+    },
     external_reference: process.env.EMAIL,
   }
 
