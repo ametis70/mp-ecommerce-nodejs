@@ -86,7 +86,7 @@ app.get('/detail', function (req, res) {
         zip_code: '111',
       },
     },
-    paymentMethods: {
+    payment_methods: {
       excluded_payment_methods: [
         {
           id: 'amex',
