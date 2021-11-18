@@ -44,7 +44,7 @@ app.get('/detail', function (req, res) {
         currency_id: 'ARS',
         unit_price: parseFloat(price),
         quantity: parseFloat(unit),
-        picture_url: `${BASE_URL}/${img.slice(1, img.length)}`,
+        picture_url: `${BASE_URL}${img.slice(1, img.length)}`,
         description: 'Dispositivo móvil de Tienda e-commerce',
       },
     ],
